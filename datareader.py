@@ -17,7 +17,7 @@ def readEventSource(path, topic, records):
             ts = datetime.strptime(line[0][:- 5], DATETIME_FORMAT).timestamp()
 
             # preparing and setting event tuple
-            record = (topic, line[0], l)
+            record = (topic, line[0], l.strip())
             if (ts in records):
                 records[ts].append(record)
             else:

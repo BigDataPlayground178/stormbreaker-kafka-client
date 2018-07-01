@@ -31,7 +31,7 @@ def producingEvent(timestamps, records):
             record_topic = record[0]
             record_key   = "{}:{}".format(record[0],record[1])
             record_val   = record[2]
-            producer.produce(record_topic, record_key, record_val, callback=deliveryCallback)
+            producer.produce(record_topic, record_val, record_key, callback=deliveryCallback)
             producer.poll(0)
             counter += 1
 
